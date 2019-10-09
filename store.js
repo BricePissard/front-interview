@@ -20,6 +20,9 @@ const reducer = (state = initialState, action) => {
       }
       state.count = state.data.length
       return state
+    case 'START':
+      state.data = action.value
+      return state
     default:
       return state
   }

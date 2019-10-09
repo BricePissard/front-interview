@@ -16,12 +16,12 @@ const PostLink = post => (
   </li>
 );
 
-const Blog = props => (
+const Blog = (props, state) => (
   <Layout>
     <h1 data-testid="page-title">Blog</h1>
     <ActionBar/>
     <ul>
-      {props && props.posts && props.posts.map(post => post && <PostLink {...post}/>)}
+      {state && state.data && state.data.map(post => post && <PostLink {...post}/>)}
     </ul>
   </Layout>
 );
@@ -31,6 +31,12 @@ Blog.getInitialProps = async ({reduxStore}) => {
   const data = await res.json();
 
   console.log('Blog.getInitialProps()', data);
+
+  const { dispatch } = reduxStore
+  dispatch({
+    type: 'START',
+    value: data
+  })
 
   return {
     posts: data
