@@ -45,6 +45,9 @@ const Header: React.FC = () => {
           <li data-testid="navlink">
             <Link href="/about"><NavItem>About</NavItem></Link>
           </li>
+          <li data-testid="navlink">
+            <Link href="/blog"><NavItem>Blog</NavItem></Link>
+          </li>
         </NavList>
       </nav>
     </Wrapper>
